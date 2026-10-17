@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6d4aff" />
+  <title>Eventora — Discover. Register. Experience.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Eventora home"><span class="brand-mark">E</span><span>eventora<span class="brand-dot">.</span><small>EVENTS, MADE MEMORABLE</small></span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="discover">Discover</button>
+      <button class="nav-link" data-view="tickets">My tickets <span id="ticketCount" class="nav-count">0</span></button>
+      <button class="nav-link organiser-nav" data-view="organiser">Organiser</button>
+    </nav>
+    <div class="header-actions">
+      <span id="userGreeting" class="user-greeting">Welcome, guest</span>
+      <button id="authButton" class="button button-outline button-small">Sign in</button>
+    </div>
+    <button id="mobileMenu" class="mobile-menu" aria-label="Toggle navigation">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT GREAT EXPERIENCE STARTS HERE</div>
+        <h1>Find your people.<br><span>Feel the moment.</span></h1>
+        <p class="hero-description">Discover inspiring experiences, connect with curious minds, and make your next event unforgettable.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="exploreButton">Explore events <span aria-hidden="true">↗</span></button>
+          <button class="button button-glass" data-view="tickets">View my tickets</button>
+        </div>
+        <div class="hero-proof"><div class="avatar-stack"><span>✦</span><span>✿</span><span>◈</span><span>+</span></div><div><strong id="heroEventCount">6 curated experiences</strong><small>Something for every curious mind</small></div></div>
+      </div>
+      <div class="hero-art" aria-label="Featured event illustration">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-glow"></div>
+        <div class="floating-note note-top"><span class="note-icon">✦</span><span><strong>Make it memorable</strong><small>Moments worth showing up for</small></span></div>
+        <div class="poster">
+          <div class="poster-top"><span>EVENTORA PRESENTS</span><span class="poster-live"><i></i> LIVE IDEAS</span></div>
+          <div class="poster-sun"></div><div class="poster-line line-a"></div><div class="poster-line line-b"></div>
+          <div class="poster-title">FUTURE<br><em>IS NOW</em></div>
+          <div class="poster-bottom"><span>IDEAS · PEOPLE · POSSIBILITY</span><span>01 / 06</span></div>
+        </div>
+        <div class="floating-note note-bottom"><span class="sparkle">✳</span><span><strong>Good things happen</strong><small>When people come together</small></span></div>
+      </div>
+      <div class="hero-bottom-label"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span></div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="statEvents">06</strong><span>Curated events</span></div>
+      <div><strong>∞</strong><span>New connections</span></div>
+      <div><strong>01</strong><span>Place to begin</span></div>
+      <div class="stats-note">A little curiosity can<br><b>change everything.</b></div>
+    </section>
+
+    <section class="content-section" id="discoverSection">
+      <div class="section-heading">
+        <div><div class="eyebrow eyebrow-dark">THE GOOD STUFF</div><h2>Experiences to <span>look forward to.</span></h2><p>Thoughtfully picked events for your next favourite memory.</p></div>
+        <div class="section-side-note">YOUR CALENDAR<br><b>DESERVES BETTER.</b></div>
+      </div>
+      <div class="filter-toolbar">
+        <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search events, topics or venues..." aria-label="Search events"></div>
+        <div class="filter-pills" id="categoryFilters">
+          <button class="filter-pill active" data-category="All">All events</button>
+          <button class="filter-pill" data-category="Technology">Technology</button>
+          <button class="filter-pill" data-category="Design">Design</button>
+          <button class="filter-pill" data-category="Business">Business</button>
+          <button class="filter-pill" data-category="Culture">Culture</button>
+        </div>
+      </div>
+      <div class="results-line"><span id="resultsLabel">Showing all experiences</span><span><i class="available-dot"></i> Live seat availability</span></div>
+      <div id="eventGrid" class="event-grid"></div>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-icon">⌕</div><h3>No events found</h3><p>Try another keyword or choose a different category.</p><button id="resetSearch" class="button button-outline">Clear filters</button></div>
+    </section>
+
+    <section class="quote-band"><div class="quote-mark">“</div><blockquote>The best stories don't happen while you're scrolling.<br><em>They happen when you show up.</em></blockquote><span>— THE EVENTORA IDEA</span><div class="quote-decoration">✳</div></section>
+
+    <section id="ticketsSection" class="content-section alternate-section hidden">
+      <div class="section-heading"><div><div class="eyebrow eyebrow-dark">YOUR PLANS</div><h2>Your tickets<span class="heading-period">.</span></h2><p>Every plan starts with a little yes.</p></div></div>
+      <div id="ticketsGrid" class="tickets-grid"></div>
+      <div id="ticketsEmpty" class="empty-state"><div class="empty-icon">✳</div><h3>Your next memory is waiting.</h3><p>When you register for an event, your ticket will appear here.</p><button class="button button-primary" data-view="discover">Explore events ↗</button></div>
+    </section>
+
+    <section id="organiserSection" class="content-section alternate-section hidden">
+      <div class="section-heading"><div><div class="eyebrow eyebrow-dark">BEHIND THE SCENES</div><h2>Organiser <span>studio.</span></h2><p>Bring your next idea to life and keep every detail in one place.</p></div><div class="organiser-chip">✦ DEMO DASHBOARD</div></div>
+      <div class="dashboard-stats"><div class="dash-stat"><span>Total events</span><strong id="dashEvents">0</strong><small>Across all categories</small></div><div class="dash-stat"><span>Registrations</span><strong id="dashRegistrations">0</strong><small>All attendee bookings</small></div><div class="dash-stat"><span>Seats remaining</span><strong id="dashSeats">0</strong><small>Available to discover</small></div></div>
+      <div class="organiser-layout">
+        <form id="eventForm" class="panel event-form">
+          <div class="panel-heading"><div><span class="panel-kicker">CREATE SOMETHING</span><h3>Add a new event</h3></div><span class="panel-icon">＋</span></div>
+          <label>Event name<input name="name" required maxlength="70" placeholder="e.g. Creative Futures Meetup"></label>
+          <div class="form-row"><label>Category<select name="category"><option>Technology</option><option>Design</option><option>Business</option><option>Culture</option></select></label><label>Event date<input name="date" type="date" required></label></div>
+          <label>Venue<input name="venue" required maxlength="100" placeholder="Location or auditorium"></label>
+          <div class="form-row"><label>Available seats<input name="capacity" type="number" min="1" max="10000" value="60" required></label><label>Accent<select name="accent"><option value="violet">Electric violet</option><option value="coral">Coral pop</option><option value="mint">Fresh mint</option><option value="blue">Ocean blue</option></select></label></div>
+          <label>Short description<textarea name="description" rows="3" maxlength="220" required placeholder="What will attendees experience?"></textarea></label>
+          <button class="button button-primary button-full" type="submit">Publish event <span>↗</span></button>
+          <p class="form-footnote">Demo mode: event data is saved in this browser.</p>
+        </form>
+        <div class="panel event-management"><div class="panel-heading"><div><span class="panel-kicker">YOUR LINEUP</span><h3>Manage events</h3></div><span class="panel-icon">▤</span></div><div id="manageEvents" class="manage-list"></div></div>
+      </div>
+      <div class="demo-notice"><span>ⓘ</span><p><b>Project demo note:</b> This frontend uses browser localStorage to demonstrate interactions. A production system needs a server, database, secure authentication, and server-side seat validation.</p></div>
+    </section>
+
+    <section class="newsletter-band"><div><span class="eyebrow">A GOOD THING IS COMING</span><h2>Make room for <em>something new.</em></h2><p>Pick an event. Meet your people. Leave with a story.</p></div><button class="button button-light" data-view="discover">Find your next event ↗</button><div class="newsletter-spark">✳</div></section>
+  </main>
+
+  <footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">E</span><span>eventora<span class="brand-dot">.</span><small>EVENTS, MADE MEMORABLE</small></span></a><span>Made for moments that matter.</span><span>© <span id="year"></span> Eventora · Student project demo</span></footer>
+
+  <div id="eventModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div><div class="modal-card"><button class="modal-close" data-close-modal aria-label="Close">×</button><div id="modalVisual" class="modal-visual"></div><div class="modal-content"><span id="modalCategory" class="category-tag"></span><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="modal-meta" id="modalMeta"></div><div class="seat-meter"><div class="seat-meter-label"><span>Seats available</span><b id="modalSeats"></b></div><div class="meter-track"><span id="modalMeter"></span></div></div><button id="registerButton" class="button button-primary button-full">Reserve my seat ↗</button><p id="modalMessage" class="modal-message"></p></div></div>
+  </div>
+
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-backdrop" data-close-auth></div><div class="auth-card"><button class="modal-close" data-close-auth aria-label="Close">×</button><div class="auth-logo">E</div><div class="eyebrow eyebrow-dark">YOUR NEXT CHAPTER</div><h2 id="authTitle">Welcome to <span>Eventora.</span></h2><p class="auth-intro">Sign in or create a demo profile to save your tickets.</p><div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login">Sign in</button><button class="auth-tab" data-auth-mode="register">Create account</button></div><form id="authForm"><div id="nameField" class="hidden"><label>Full name<input name="name" maxlength="60" placeholder="Your name"></label></div><label>Email address<input name="email" type="email" required placeholder="you@example.com"></label><label>Password<input name="password" type="password" required minlength="4" placeholder="At least 4 characters"></label><button class="button button-primary button-full" type="submit" id="authSubmit">Sign in ↗</button><p class="form-footnote">Demo-only sign-in. Do not use a real password.</p><p id="authMessage" class="modal-message"></p></form><button id="demoOrganiser" class="text-button">Continue as demo organiser</button></div>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+                                                                                                                                                                                                                                                                                                        </html>
